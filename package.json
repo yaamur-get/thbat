@@ -1,0 +1,11 @@
+{
+  "name": "mosque-project",
+  "version": "1.0.0",
+  "description": "Static website for mosque construction project",
+  "scripts": {
+    "dev": "npx serve -l 3000",
+    "start": "npx serve -l 3000"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

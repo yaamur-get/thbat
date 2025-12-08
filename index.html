@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مشروع بناء مسجد حي الشباب بمدينة الدمام</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="images/placeholder.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Banner -->
+    <section class="banner">
+      <div class="banner-info">
+        <img src="images/logo-topline.svg" alt="شعار الجمعية" class="banner-brand">
+      </div>
+          <h1 class="banner-title">مشروع بناء مسجد حي الشباب بمدينة الدمام</h1>
+      <div class="banner-logos" aria-label="الشركاء والداعمين">
+        <div class="banner-logo-item">
+          <span class="banner-logo-label">بدعم</span>
+          <img src="images/20250715_193930.jpg" alt="شعار الراعي 1" class="banner-logo">
+        </div>
+        <div class="banner-logo-item">
+          <span class="banner-logo-label">إدارة</span>
+          <img src="images/logo-brand.svg" alt="شعار الراعي 2" class="banner-logo">
+        </div>
+        <div class="banner-logo-item">
+          <span class="banner-logo-label">بالتعاون</span>
+          <img src="images/1.svg" alt="شعار الراعي 3" class="banner-logo">
+        </div>
+        <div class="banner-logo-item">
+          <span class="banner-logo-label">استشاري</span>
+          <img src="images/20250715_194024.jpg" alt="شعار الراعي 4" class="banner-logo">
+        </div>
+        <div class="banner-logo-item">
+          <span class="banner-logo-label">المكتب الهندسي</span>
+          <img src="images/20250715_194045.jpg" alt="شعار الراعي 5" class="banner-logo">
+        </div>
+      </div>
+      <div class="banner-stats" aria-label="إحصاءات المشروع">
+        <div class="banner-stat">
+          <div class="banner-number">1,361</div>
+          <div class="banner-label">إجمالي المتبرعين</div>
+        </div>
+        <div class="banner-stat">
+          <div class="banner-number">480</div>
+          <div class="banner-label">المساهمات الحالية</div>
+        </div>
+        <div class="banner-stat">
+          <div class="banner-number">14</div>
+          <div class="banner-label">مراحل المشروع</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Images -->
+    <section class="images">
+      <img src="images/mosque1.jpg" alt="صورة المسجد 1" />
+      <img src="images/mosque2.jpg" alt="صورة المسجد 2" />
+    </section>
+
+    <!-- Video -->
+    <div class="media-caption">البث المباشر</div>
+    <div class="banner-location">
+            <span>موقع المسجد:</span>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">فتح الموقع</a>
+          </div>
+         
+    <div class="black-screen">
+      <iframe src="https://www.youtube.com/embed/7G-LbDh2twM"
+              
+              frameborder="0"
+              allow="autoplay; encrypted-media">
+      </iframe>
+    </div>
+
+    <!-- Progress Gauge -->
+    <section class="progress-section">
+      <div class="gauge">
+        <div class="gauge-label">نسبة الإنجاز</div>
+        <svg viewBox="0 0 100 50">
+          <path d="M10,50 A40,40 0 0,1 90,50" class="gauge-bg" />
+          <path id="gauge-fill" d="M10,50 A40,40 0 0,1 90,50" class="gauge-fill" />
+          <text id="gauge-text" x="50" y="45" text-anchor="middle" class="gauge-text">35.00 %</text>
+        </svg>
+      </div>
+
+      <div class="stage-info">
+        <h2>المرحلة الحالية</h2>
+        <p>الجمع والتشطيبات مستمرة</p>
+      </div>
+      <div class="countdown-container" aria-live="polite" aria-atomic="true">
+        <div class="countdown-item" aria-label="عدد الأيام المتبقية">
+          <div class="countdown-number" id="days">0</div>
+          <div class="countdown-label">أيام</div>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-item" aria-label="عدد الساعات المتبقية">
+          <div class="countdown-number" id="hours">0</div>
+          <div class="countdown-label">ساعات</div>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-item" aria-label="عدد الدقائق المتبقية">
+          <div class="countdown-number" id="minutes">0</div>
+          <div class="countdown-label">دقائق</div>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-item" aria-label="عدد الثواني المتبقية">
+          <div class="countdown-number" id="seconds">0</div>
+          <div class="countdown-label">ثواني</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Strip 1 -->
+    <div class="timeline-container">
+      <div class="timeline-strip">
+        <div class="timeline-pill">
+          <div class="timeline-item completed"><span>تحديد الموقع</span></div>
+          <div class="timeline-item completed"><span>الدراسات المبدئية</span></div>
+          <div class="timeline-item completed"><span>إعداد المخططات</span></div>
+          <div class="timeline-item completed"><span>اعتماد المخططات</span></div>
+          <div class="timeline-item completed"><span>أعمال الحفر</span></div>
+          <div class="timeline-item completed"><span>أعمال الأساسات</span></div>
+          <div class="timeline-item completed"><span>بناء الهيكل</span></div>
+          <div class="timeline-item current"><span>التشطيبات الداخلية</span></div>
+
+          <div class="timeline-item pending"><span>أعمال الواجهات</span></div>
+          <div class="timeline-item pending"><span>أعمال الكهرباء والميكانيكا</span></div>
+
+          <div class="timeline-item pending"><span>أعمال البلاط</span></div>
+          <div class="timeline-item pending"><span>التأثيث والتجهيز</span></div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Timeline Strip 2 -->
+   
+    <div class="timeline-container timeline-container-with-label">
+      <div class="timeline-strip1">
+        <div class="timeline-pill">
+          <div class="timeline-item completed"><span>إطلاق الحملة</span></div>
+          <div class="timeline-item completed"><span>تصميم الهوية</span></div>
+
+
+          <div class="timeline-item completed"><span>إعداد المواد الإعلامية</span></div>
+          <div class="timeline-item completed"><span>إطلاق الإعلانات</span></div>
+
+          <div class="timeline-item completed"><span>استقبال التبرعات</span></div>
+            <div class="timeline-item completed"><span>تفعيل القنوات الرقمية</span></div>
+
+            <div class="timeline-item completed"><span>شراكات مجتمعية</span></div>
+          <div class="timeline-item completed"><span>فعاليات ميدانية</span></div>
+
+          <div class="timeline-item completed"><span>تحصيل التبرعات</span></div>
+
+          <div class="timeline-item current"><span>متابعة الجمع</span></div>
+            <div class="timeline-item pending"><span>تحديث التقارير</span></div>
+
+          <div class="timeline-item pending"><span>الإقفال النهائي</span></div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* Placeholder styles for missing images */
+/* Logo styles removed as requested */
+
+.qr {
+  background: #e0e0e0;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr::before {
+  content: "QR";
+  font-size: 12px;
+  color: #666;
+}
+
+
+
+.images img {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.images img::before {
+  content: "صورة المسجد";
+  color: #666;
+  font-size: 14px;
+}
