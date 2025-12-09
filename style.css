@@ -61,7 +61,7 @@ body {
 }
 
 .banner-title {
-  margin: 0;
+  margin-bottom: 30px;
   text-align: center;
   font-size: clamp(22px, 3vw, 32px);
   color: var(--primary);
@@ -75,6 +75,7 @@ body {
   justify-content: space-between;
   gap: clamp(12px, 2vw, 18px);
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .banner-brand {
@@ -530,12 +531,12 @@ body {
 .gauge {
   width: clamp(240px, 22vw, 320px);
   height: clamp(140px, 12vw, 200px);
+  
 }
-
 .gauge-text {
-  font-size: 3.4vw;
+  font-size: clamp(18px, 2.2vw, 30px);
   fill: var(--primary-dark);
-  font-weight: 1000;
+  font-weight: 700;
 }
 
 .gauge-bg {
@@ -557,6 +558,11 @@ body {
   font-size: 1.1vw;
   text-align: center;
 }
+.stage-info h2{
+  font-size: 2.2vw;
+  color: #809b30;
+  margin: 0.2vw 0;
+}
 
 .countdown {
   font-size: 1.8vw;
@@ -576,6 +582,19 @@ body {
   user-select: text;
   direction: ltr;
 }
+.countdown-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.label-count {
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: 700;
+  color: #809b30;
+  margin-bottom: 0.4vw;
+}
 
 .countdown-item {
   display: flex;
@@ -593,7 +612,13 @@ body {
 
 .countdown-label {
   font-weight: 400;
-  font-size: 0.8vw;
+  font-size: 1.8vw;
+  color: #649c99;
+}
+.label-count {
+  font-weight: 400;
+  font-size: 1vw;
+  padding-bottom: 20px;
   color: #649c99;
 }
 
@@ -613,7 +638,7 @@ body {
 }
 
 .gauge-text {
-  font-size: 19px;
+  font-size: 15px;
   fill: var(--primary-dark);
   font-weight: 700;
 }
@@ -632,7 +657,7 @@ body {
   }
 
   .gauge-text {
-    font-size: 17px;
+    font-size: 16px;
     fill: var(--primary-dark);
     font-weight: 1000;
   }
@@ -646,7 +671,7 @@ body {
   }
 
   .gauge-text {
-    font-size: 15px;
+    font-size: 14px;
     fill: var(--primary-dark);
     font-weight: 1000;
   }
@@ -660,9 +685,9 @@ body {
   }
 
   .gauge-text {
-    font-size: 15px;
-    fill: #2c5530;
-    font-weight: 1000;
+    font-size: 13px;
+    fill: var(--primary-dark);
+    font-weight: 900;
   }
 }
 
@@ -715,10 +740,17 @@ body {
   background: #000;
   display: block;
 }
-
+.media-section {
+  padding: 10px  0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4vw;
+  width: 70%;
+}
 .media-caption {
   margin: 0.5vw 0 0.2vw;
-  font-size: 12px;
+  font-size: 19px;
   color: var(--text-muted);
   text-align: right;
 }
@@ -1134,6 +1166,10 @@ body {
   .right-img-witer {
     font-size: 4px;
   }
+  .media-section {
+  width: 100%;
+}
+
 
   .images img {
     height: 100px;
@@ -1228,13 +1264,15 @@ body {
   }
 
   .progress-section h2 {
-    font-size: 1.8vw;
+    font-size: 2.8vw;
   }
 
   .progress-section p {
-    font-size: 1vw;
+    font-size: 3vw;
   }
-
+ .label-count{
+    font-size: 2.5vw;
+ }
   .countdown-container {
     gap: 0px;
   }
@@ -1244,7 +1282,7 @@ body {
   }
 
   .countdown-label {
-    font-size: 0.8vw;
+    font-size: 2.8vw;
   }
 
   .countdown-separator {
@@ -1373,6 +1411,7 @@ body {
   body {
     padding: 12px;
   }
+  
 
   .container {
     padding: 14px 12px;
@@ -1400,7 +1439,7 @@ body {
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 8px;
-    padding: 0 4px;
+    padding: 10px 4px;
     scroll-snap-type: x mandatory;
   }
 
@@ -1474,12 +1513,12 @@ body {
     grid-area: gauge;
     width: 100%;
     max-width: 210px;
-    height: auto;
+    height: 70%;
   }
 
   .gauge svg {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
 
   .countdown-container {
@@ -1490,6 +1529,114 @@ body {
 
   .stage-info {
     grid-area: info;
+    
+  }
+}
+
+/* إبقاء إحصائيات البانر على صف واحد في الهواتف مع تمرير أفقي */
+@media (max-width: 768px) {
+  .banner-stats {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) #e6eaf0;
+  }
+
+  .banner-stat {
+    min-width: 150px;
+    flex: 0 0 auto;
+  }
+
+  .banner-stats::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .banner-stats::-webkit-scrollbar-track {
+    background: #e6eaf0;
+    border-radius: 10px;
+  }
+
+  .banner-stats::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+  }
+
+  .banner-stats::before,
+  .banner-stats::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .banner-stats::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+  }
+
+  .banner-stats::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+  }
+
+  /* إبقاء محتوى banner-info في صف واحد مع تمرير أفقي وإظهار تلميح التمرير */
+  .banner-info {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) #e6eaf0;
+  }
+
+  .banner-info > * {
+    flex: 0 0 auto;
+  }
+
+  .banner-info::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .banner-info::-webkit-scrollbar-track {
+    background: #e6eaf0;
+    border-radius: 10px;
+  }
+
+  .banner-info::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+  }
+
+  .banner-info::before,
+  .banner-info::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .banner-info::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+  }
+
+  .banner-info::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
   }
 }
 
@@ -1526,8 +1673,9 @@ body {
 
   .banner-stats {
     grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    
   }
-
+ 
   .banner-number {
     font-size: 22px;
   }
@@ -1555,4 +1703,8 @@ body {
   .gauge {
     max-width: 180px;
   }
+  .banner-brand{
+    width: 100%;
+  }
+  
 }
