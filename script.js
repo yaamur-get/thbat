@@ -1,6 +1,6 @@
 function updateCountdown() {
   const now = new Date();
-  const future = new Date('2025-12-31T00:00:00');
+  const future = new Date('2026-12-31T00:00:00');
   const diff = future - now;
 
   if (diff <= 0) {
@@ -34,7 +34,9 @@ function setProgress(percent) {
   // تأكد أن القيمة بين 0 و 100
   percent = Math.max(0, Math.min(percent, 100));
 
-  const circumference = 126;
+  // استخدم طول المسار الفعلي لتجنب اختلاف الشكل عند تغيّر العرض
+  // getTotalLength() يعطي طول المسار بالوحدات المستخدمة في الـ SVG
+  const circumference = fill.getTotalLength();
   const offset = circumference - (circumference * percent / 100);
 
   // تحديث القوس والنص
@@ -44,4 +46,4 @@ function setProgress(percent) {
 }
 
 // استدعاء لتحديث القوس بنسبة معينة (عدّل الرقم حسب الحاجة)
-setProgress(35); // ✅ غيّر الرقم هنا حسب نسبة الإنجاز المطلوبة
+setProgress(19); // ✅ تم ضبط النسبة إلى 19%
