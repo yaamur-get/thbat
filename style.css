@@ -4,9 +4,9 @@
   --bg-end: #0f172a;
   --card-bg: #ffffff;
   --muted-bg: #f7f9fc;
-  --primary: #055D39;
-  --primary-dark: #055D39;
-  --accent: #2c88a8;
+  --primary: #015B37;
+  --primary-dark: #9CB359;
+  --accent: #000000;
   --text-main: #2c3038;
   --text-muted: #5f6675;
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
@@ -169,6 +169,141 @@ body {
   font-weight: 700;
   text-decoration: none;
   border-bottom: 1px dotted var(--accent);
+}
+
+/* ===== Responsive site header: logo + title/link ===== */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.site-logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-logo .banner-brand {
+  width: clamp(120px, 18vw, 260px);
+}
+
+.site-meta {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left; /* will be overridden for RTL where needed */
+}
+
+/* اجعل النص على اليمين في اتجاه RTL */
+[dir="rtl"] .site-meta { text-align: right; }
+
+/* On small screens stack logo above meta (logo first, meta below) */
+@media (max-width: 700px) {
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+  }
+
+  .site-meta { text-align: center; }
+
+  .banner-title { margin-bottom: 0; }
+}
+
+/* On larger screens give the title prominence */
+@media (min-width: 701px) {
+  .banner-title { font-size: clamp(26px, 3.4vw, 44px); }
+}
+
+/* ===== Enhanced header visuals ===== */
+.banner {
+  position: relative;
+  padding-top: 2.4rem;
+}
+
+.site-header {
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.site-meta { order: 1; }
+.site-logo { order: 2; }
+
+/* On larger screens place logo to the far side and center title */
+@media (min-width: 700px) {
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-meta {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .site-logo {
+    flex: 0 0 auto;
+    align-self: flex-start;
+  }
+
+  .banner-title {
+    font-size: clamp(28px, 4vw, 56px);
+    letter-spacing: -0.02em;
+    margin: 0.2rem 0;
+  }
+}
+
+/* ===== Logo top spacing: reserve a fixed space above the logo ===== */
+:root { --logo-top-space: 1rem; }
+
+.banner { --logo-top-space: 1rem; }
+
+/* For larger screens increase the reserved top space */
+@media (min-width: 700px) {
+  .banner { --logo-top-space: 2.2rem; }
+}
+
+.site-logo {
+  /* use padding-top to reserve visible space above the logo */
+  padding-top: var(--logo-top-space);
+  align-self: flex-start; /* pin logo to the top of the header area */
+}
+
+/* If you prefer the logo inside a fixed-height column, uncomment and tune:
+.site-logo { height: 120px; display:flex; align-items:flex-start; padding-top: 20px; }
+*/
+
+/* CTA button style */
+.btn-cta {
+  display: inline-block;
+
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(5,93,57,0.18); }
+
+.loc-label { color: var(--text-muted); margin-inline-end: 0.6rem; }
+
+/* Mobile: make CTA full width and below title */
+@media (max-width: 700px) {
+  .banner-location { display: flex; gap: 0.6rem; align-items: center; }
+
+  .btn-cta { width: 100px; text-align: center; padding-top: 20px;}
 }
 
 .banner-logos {
@@ -611,7 +746,7 @@ body {
 
 .gauge-fill {
   fill: none;
-  stroke: var(--primary);
+  stroke: var(--primary-dark);
   stroke-width: 1.7vw;
   stroke-dasharray: 12.6vw;
   stroke-dashoffset: 0;
@@ -765,7 +900,7 @@ body {
 
 .gauge-fill {
   fill: none;
-  stroke: var(--primary);
+  stroke: var(--primary-dark);
   stroke-width: 10;
   /* أرفع من الخلفية */
   stroke-dasharray: 126;
