@@ -297,11 +297,11 @@ body {
 
 .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(5,93,57,0.18); }
 
-.loc-label { color: var(--text-muted); margin-inline-end: 0.6rem; }
+.loc-label { color: var(--text-muted); margin-inline-end: 0.6rem;  justify-content: end;}
 
 /* Mobile: make CTA full width and below title */
 @media (max-width: 700px) {
-  .banner-location { display: flex; gap: 0.6rem; align-items: center; }
+  .banner-location { display: flex; gap: 0.6rem;  }
 
   .btn-cta { width: 100px; text-align: center; padding-top: 20px;}
 }
@@ -1837,6 +1837,13 @@ body {
   .banner-info::after {
     right: 0;
     background: linear-gradient(to left, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+  }
+
+  .banner-info::before,
+  .banner-info::after,
+  .banner-stats::before,
+  .banner-stats::after {
+    display: none;
   }
 }
 
