@@ -11,24 +11,34 @@
 </head>
 <body>
   <div class="container">
-      <div>
-           <img src="images/logo-topline.svg" alt="شعار الجمعية" class="banner-brand">
-      </div>
+      
     <!-- Banner -->
     <section class="banner">
+      <div class="left-banner">
+        <div>
+           <img src="images/logo-topline.svg" alt="شعار الجمعية" class="banner-brand">
+      </div>
+       <div class="banner-location">
+               <img class="qrloc" src="./images/QRCODE.png" alt="">
+                <a class="btn-cta" href="https://maps.app.goo.gl/i5jjkdouEoEr7zkJ7" target="_blank" rel="noopener noreferrer">موقع الجامع</a>
+              </div>
+              </div>
       <div class="banner-info">
         <div class="site-header">
          
           <div class="site-meta">
-              <h1 class="banner-title">مشروع جامع الضاحية</h1>
-              <div class="banner-location">
-                <span class="loc-label">موقع المسجد:</span>
-                <a class="btn-cta" href="https://maps.app.goo.gl/i5jjkdouEoEr7zkJ7" target="_blank" rel="noopener noreferrer">فتح الموقع</a>
-              </div>
+           
+              <h1 class="banner-title">مشروع بناء جامع الضاحية</h1>
+              
           </div>
         </div>
       </div>
       <div class="banner-logos" aria-label="الشركاء والداعمين">
+
+        <div class="banner-logo-item">
+          <span class="banner-logo-label">إدارة</span>
+          <img src="images/Ministry_of_islamic_affairs_in_saudi_arabia_Logo.svg" alt="شعار الراعي 2" class="banner-logo">
+        </div>
        
         <div class="banner-logo-item">
           <span class="banner-logo-label">إدارة</span>
@@ -47,12 +57,24 @@
       <div class="banner-stats" aria-label="إحصاءات المشروع">
         <div class="banner-stat">
           <div class="banner-number">2,928</div>
-          <div class="banner-label">إجمالي مساحة المسجد</div>
+          <div class="banner-label">إجمالي مساحة الجامع م2</div>
         </div>
           
         <div class="banner-stat">
           <div class="banner-number">500</div>
           <div class="banner-label">إجمالي عدد المصلين</div>
+        </div>
+        <div class="banner-stat">
+          <div class="banner-number">6</div>
+          <div class="banner-label">عدد المحلات الوقفية</div>
+        </div>
+        <div class="banner-stat">
+          <div class="banner-number">6/18/2025</div>
+          <div class="banner-label">تاريخ بداية المشروع</div>
+        </div>
+        <div class="banner-stat">
+          <div class="banner-number">8/12/2026</div>
+          <div class="banner-label">تاريخ نهاية المشروع المتوقعة</div>
         </div>
         <div class="banner-stat">
           <div class="banner-number">14 شهر</div>
@@ -62,9 +84,32 @@
     </section>
 
     <!-- Images -->
-    <section class="images">
-      <img src="images/pic_insad_dahah.png" alt="صورة المسجد 1" />
-      <img src="images/pic_outsid_daha.png" alt="صورة المسجد 2" />
+    <section class="images images-carousel" aria-label="Project images">
+      <div class="carousel">
+        <button class="carousel-btn prev" type="button" aria-label="Previous">
+          &rsaquo;
+        </button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/pic_insad_dahah.png" alt="Mosque image 1" loading="lazy" decoding="async" />
+            </div>
+            <div class="carousel-slide">
+              <img src="images/pic_outsid_daha.png" alt="Mosque image 2" loading="lazy" decoding="async" />
+            </div>
+            <div class="carousel-slide">
+              <img src="images/mosque1.jpg" alt="Mosque image 3" loading="lazy" decoding="async" />
+            </div>
+            <div class="carousel-slide">
+              <img src="images/mosque2.jpg" alt="Mosque image 4" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn next" type="button" aria-label="Next">
+          &lsaquo;
+        </button>
+      </div>
+      <div class="carousel-dots" role="tablist" aria-label="Image navigation"></div>
     </section>
 
     <!-- Video -->
@@ -82,21 +127,24 @@
 
     <!-- Progress Gauge -->
     <section class="progress-section">
-      <div class="gauge">
-       
-        <svg viewBox="0 0 100 50">
-          <path d="M10,50 A40,40 0 0,1 90,50" class="gauge-bg" />
-          <path id="gauge-fill" d="M10,50 A40,40 0 0,1 90,50" class="gauge-fill" />
-          <text id="gauge-text" x="50" y="45" text-anchor="middle" class="gauge-text">35.00 %</text>
-        </svg>
+      <div class="progress-block progress-gauge">
+        <h3 class="progress-title">نسبة الإنجاز</h3>
+        <div class="gauge">
+          <svg viewBox="0 0 100 50">
+            <path d="M10,50 A40,40 0 0,1 90,50" class="gauge-bg" />
+            <path id="gauge-fill" d="M10,50 A40,40 0 0,1 90,50" class="gauge-fill" />
+            <text id="gauge-text" x="50" y="45" text-anchor="middle" class="gauge-text">35.00 %</text>
+          </svg>
+        </div>
       </div>
 
-      <div class="stage-info">
-        <h2>المرحلة الحالية</h2>
-        <p>أعمال الميدات</p>
+      <div class="progress-block stage-info">
+        <h3 class="progress-title">المرحلة الحالية</h3>
+        <p class="stage-name">أعمال الميدات</p>
       </div>
-      <div class="countdown-wrapper">
-        <div class="label-count">عدد الأيام المتبقية</div>
+
+      <div class="progress-block countdown-wrapper">
+        <h3 class="progress-title">عدد الأيام المتبقية</h3>
         <div class="countdown-container" aria-live="polite" aria-atomic="true">
           <div class="countdown-item" aria-label="عدد الأيام المتبقية">
             <div class="countdown-number" id="days">0</div>

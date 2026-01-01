@@ -154,11 +154,21 @@ body {
   flex-direction: column;
   gap: 6px;
 }
-
+.left-banner {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.left-banner img {
+ width: clamp(80px, 50vw, 500px);;
+ 
+}
 .banner-location {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;  
+
   flex-wrap: wrap;
   font-size: 14px;
   color: var(--text-muted);
@@ -170,7 +180,11 @@ body {
   text-decoration: none;
   border-bottom: 1px dotted var(--accent);
 }
-
+.banner-location img {
+  width: clamp(40px, 6vw, 60px);
+  align-items: center;
+  justify-content: center;
+}
 /* ===== Responsive site header: logo + title/link ===== */
 .site-header {
   display: flex;
@@ -301,9 +315,9 @@ body {
 
 /* Mobile: make CTA full width and below title */
 @media (max-width: 700px) {
-  .banner-location { display: flex; gap: 0.6rem;  }
+  .banner-location { display: flex; justify-content: center; }
 
-  .btn-cta { width: 100px; text-align: center; padding-top: 20px;}
+  .btn-cta { width: 50px; text-align: center; font-size: 8px;}
 }
 
 .banner-logos {
@@ -341,8 +355,8 @@ body {
 
 .banner-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
   align-items: center;
   text-align: center;
 }
@@ -659,9 +673,7 @@ body {
 
 /* ==================== قسم الصور (Images) ==================== */
 .images {
-  display: flex;
-  gap: clamp(10px, 2vw, 18px);
-  justify-content: center;
+  position: relative;
   margin: 1vw 0 1.4vw;
   padding: 1vw;
   background: var(--muted-bg);
@@ -670,30 +682,149 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.images img {
-  flex: 1 1 48%;
-  max-width: 48%;
-  aspect-ratio: 16 / 9;
+.images-carousel {
+  direction: ltr;
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.carousel-slide img {
+  width: 100%;
   height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.images img:hover {
+.carousel-slide img:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
   border-color: #809b30;
 }
 
-/* ==================== قسم التقدم - Gauge + Countdown (Progress) ==================== */
-.progress-section {
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  color: #2c3038;
+  font-size: 22px;
+  line-height: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  z-index: 2;
+}
+
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+.carousel-btn.prev {
+  right: 12px;
+}
+
+.carousel-btn.next {
+  left: 12px;
+}
+
+.carousel-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.carousel-dot.is-active {
+  background: var(--primary-dark);
+  transform: scale(1.2);
+}
+
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    padding: 0 6px;
+  }
+
+  .carousel-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* ==================== قسم التقدم - Gauge + Countdown (Progress) ==================== */
+.progress-section {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  justify-items: center;
   margin: 1.2vw 0 1.6vw;
   gap: clamp(12px, 2vw, 24px);
   background: var(--muted-bg);
@@ -703,27 +834,33 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.progress-section > .gauge,
-.progress-section > .stage-info,
-.progress-section > .countdown-container {
-  flex: 1 1 240px;
+.progress-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 0.8vw, 12px);
+  text-align: center;
+  min-width: 0;
 }
 
 /* العنوان الرئيسي (مثلاً: أعمال المباني) */
-.progress-section h2 {
-  color: var(--accent);
+.progress-title {
+  margin: 0;
+  font-size: clamp(18px, 2.4vw, 26px);
   font-weight: 800;
-  font-size: clamp(16px, 2vw, 22px);
-  margin: 0 0 0.4vw;
+  color: var(--primary-dark);
+  letter-spacing: -0.01em;
 }
 
 /* الو��ف أو العنوان الفرعي (مثلاً: المرحلة الحالية) */
-.progress-section p {
-  color: var(--text-muted);
-  font-size: clamp(12px, 1.2vw, 16px);
-  margin: 0.2vw 0 0;
+.stage-name {
+  margin: 0;
   text-align: center;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(16px, 2.2vw, 26px);
+  font-weight: 700;
+  color: #8fb4c9;
 }
 
 /* جعل gauge متجاوب (نسخة 1) */
@@ -753,14 +890,8 @@ body {
   transition: stroke-dashoffset 1s;
 }
 
-.stage-info{
-  font-size: 1.1vw;
+.stage-info {
   text-align: center;
-}
-.stage-info h2{
-  font-size: 2.2vw;
-  color: #809b30;
-  margin: 0.2vw 0;
 }
 
 .countdown {
@@ -773,16 +904,17 @@ body {
 
 .countdown-container {
   display: flex;
-  gap: 0.0vw;
+  
   justify-content: center;
-  font-weight: 400;
-  color: #809b30;
-  font-size: 1.6vw;
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: clamp(14px, 1.6vw, 18px);
   user-select: text;
   direction: ltr;
 }
 .countdown-wrapper {
   display: flex;
+  width: clamp(280px, 28vw, 160px);
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -804,15 +936,15 @@ body {
 
 .countdown-number {
   font-weight: 700;
-  font-size: 2vw;
+  font-size: clamp(22px, 3vw, 36px);
   line-height: 1;
-  color: #809b30;
+  color: var(--primary-dark);
 }
 
 .countdown-label {
-  font-weight: 400;
-  font-size: 1.8vw;
-  color: #649c99;
+  font-weight: 600;
+  font-size: clamp(12px, 1.6vw, 18px);
+  color: #7aa5a9;
 }
 .label-count {
   font-weight: 400;
@@ -822,10 +954,10 @@ body {
 }
 
 .countdown-separator {
-  font-size: 1.8vw;
+  font-size: clamp(18px, 2.4vw, 30px);
   font-weight: 700;
-  color: #809b30;
-  margin: 0 0.8vw;
+  color: var(--primary-dark);
+  margin: 0 0.6vw;
   align-self: center;
 }
 
@@ -1370,8 +1502,8 @@ body {
 }
 
 
-  .images img {
-    height: 100px;
+  .carousel-slide img {
+    height: auto;
   }
 
   .timeline-pill {
@@ -1462,16 +1594,13 @@ body {
     font-size: 5px;
   }
 
-  .progress-section h2 {
-    font-size: 2.8vw;
+  .progress-title {
+    font-size: 3.2vw;
   }
 
-  .progress-section p {
-    font-size: 3vw;
+  .stage-name {
+    font-size: 3.2vw;
   }
- .label-count{
-    font-size: 2.5vw;
- }
   .countdown-container {
     gap: 0px;
   }
@@ -1504,8 +1633,8 @@ body {
     font-size: 5px;
   }
 
-  .images img {
-    height: 100px;
+  .carousel-slide img {
+    height: auto;
   }
 
   .timeline-pill {
@@ -1636,7 +1765,8 @@ body {
   }
 
   .banner-logos {
-    flex-wrap: nowrap;
+    display: flex;
+   flex-direction: row-reverse; /* يبدأ العناصر من اليمين */
     overflow-x: auto;
     gap: 8px;
     padding: 10px 4px;
@@ -1699,21 +1829,14 @@ body {
   }
 
   .progress-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "countdown gauge"
-      "info info";
-    align-items: center;
-    justify-items: center;
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .gauge {
-    grid-area: gauge;
     width: 100%;
-    max-width: 210px;
-    height: 70%;
+    max-width: 220px;
+    height: auto;
   }
 
   .gauge svg {
@@ -1722,14 +1845,9 @@ body {
   }
 
   .countdown-container {
-    grid-area: countdown;
-    justify-content: flex-start;
-    gap: 6px;
-  }
-
-  .stage-info {
-    grid-area: info;
-    
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
 
