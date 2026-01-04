@@ -90,6 +90,52 @@ setProgress(19); // ✅ تم ضبط النسبة إلى 19%
 
   if (!track || !viewport) return;
 
+  // Build slides from images/dihahphoto.
+  const imageSources = [
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20105921.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20105933.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20105946.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110016.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110031.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110107.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110124.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110136.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110158.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110207.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110216.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110232.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110241.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110408.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110422.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110430.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110455.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110510.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110519.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110539.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110549.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110607.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110620.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110636.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-04%20110650.png"
+  ];
+
+  if (imageSources.length) {
+    track.innerHTML = '';
+    imageSources.forEach((src, idx) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `Project image ${idx + 1}`;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+
+      slide.appendChild(img);
+      track.appendChild(slide);
+    });
+  }
+
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let originalSlides = Array.from(track.children);
   if (originalSlides.length <= 1) return;
