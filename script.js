@@ -315,3 +315,41 @@ setProgress(19); // ✅ تم ضبط النسبة إلى 19%
   rebuildClones(0);
   startAuto();
 })();
+
+// --------------------
+// 4. Timeline current label
+// --------------------
+(function initTimelineCurrentLabel() {
+  const strips = document.querySelectorAll('.timeline-strip, .timeline-strip1');
+  if (!strips.length) return;
+
+  function updateStrip(strip) {
+    const current = strip.querySelector('.timeline-item.current');
+    let label = strip.querySelector('.timeline-current-label');
+
+    if (!current) {
+      if (label) label.remove();
+      return;
+    }
+
+    if (!label) {
+      label = document.createElement('div');
+      label.className = 'timeline-current-label';
+      label.textContent = 'يحدث الآن';
+      strip.appendChild(label);
+    }
+
+    const stripRect = strip.getBoundingClientRect();
+    const currentRect = current.getBoundingClientRect();
+    const center = currentRect.left - stripRect.left + (currentRect.width / 2);
+    label.style.left = `${center}px`;
+  }
+
+  function updateAll() {
+    strips.forEach(updateStrip);
+  }
+
+  window.addEventListener('resize', updateAll);
+  window.addEventListener('load', updateAll);
+  updateAll();
+})();

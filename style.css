@@ -1139,7 +1139,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.2vw auto 0.8vw;
+  margin: 0.2vw auto calc(0.8vw + 16px);
   position: relative;
   height: 60px;
   width: 100%;
@@ -1151,7 +1151,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.2vw auto 0.8vw;
+  margin: 0.2vw auto calc(0.8vw + 16px);
   position: relative;
   height: 60px;
   width: 100%;
@@ -1199,6 +1199,18 @@ body {
 .timeline-item span {
   transform: skewX(10deg);
   display: block;
+}
+
+.timeline-current-label {
+  position: absolute;
+  top: 100%;
+  transform: translate(-50%, 6px);
+  font-size: clamp(10px, 1.2vw, 12px);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 .timeline-item:first-child {
