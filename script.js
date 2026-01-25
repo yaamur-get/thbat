@@ -18,7 +18,7 @@ function updateCountdown() {
     }
 
     // fallback: جرب تحليل سلسلة ISO (بتنسيق صحيح) ثم انتحل إلى منشئ أرقام إن فشل التحليل
-    const iso = '2026-08-22T00:00:00';
+    const iso = '2026-06-10T00:00:00';
     const parsed = new Date(iso);
     if (!isNaN(parsed.getTime())) return parsed;
     // افتراضي آمن: 12 أغسطس 2026 (ملاحظة: الشهر هنا 0-based لذلك أغسطس = 7)
@@ -72,7 +72,7 @@ function setProgress(percent) {
 }
 
 // استدعاء لتحديث القوس بنسبة معينة (عدّل الرقم حسب الحاجة)
-setProgress(35); // ✅ تم ضبط النسبة إلى 19%
+setProgress(23); // ✅ تم ضبط النسبة إلى 35%
 
 // --------------------
 // 3. Images carousel
@@ -92,17 +92,16 @@ setProgress(35); // ✅ تم ضبط النسبة إلى 19%
 
   // Build slides from images/dihahphoto.
   const imageSources = [
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105405.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105422.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105434.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105451.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105508.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105521.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105535.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105618.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105632.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105647.png",
-    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-12%20105700.png"
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20143826.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20143840.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20143849.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20143857.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20143908.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20143921.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20143933.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20143943.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20143953.png",
+    "images/dihahphoto/%D9%84%D9%82%D8%B7%D8%A9%20%D8%B4%D8%A7%D8%B4%D8%A9%202026-01-25%20144007.png"
   ];
 
   if (imageSources.length) {
